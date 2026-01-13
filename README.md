@@ -69,5 +69,6 @@ Quick Start
     python main.py
     ```
     *Note: If no video file is found in `data/`, the application will automatically open your webcam.*
-  Academic Context
+    
+      Academic Context
 This project was developed for the Computer Vision course, demonstrating mastery of fundamental algorithms independently of "Black Box" AI libraries.
