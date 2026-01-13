@@ -1,19 +1,19 @@
 A real-time person detection system built using Classical Computer Vision techniques in Python and OpenCV.
 
-  Project Overview
+    Project Overview
 This project demonstrates the application of fundamental image processing algorithms to solve industrial safety challenges. It detects workers in the blind spots of machinery without requiring high-end GPU hardware.
 
-  Technical Analysis: Classical (MOG2) vs. Deep Learning
+    Technical Analysis: Classical (MOG2) vs. Deep Learning
 This system is intentionally built using MOG2 (Gaussian Mixture-based Background/Foreground Segmentation) to meet specific requirements. However, it is essential to understand the limitations of this pixel-based approach compared to modern Deep Learning (DL) detectors like YOLO.
 
-  The Limitations of MOG2 (The "Downfall")
+    The Limitations of MOG2 (The "Downfall")
 Motion Dependency: MOG2 detects pixel changes, not people. If a worker stands perfectly still, they are absorbed into the background model and "disappear." DL models detect features (limbs, heads), so they see static people.
 
 Ego-Motion Sensitivity: If the machine (camera) moves, the entire background shifts. MOG2 interprets this global change as motion, triggering massive false positives. DL models are generally invariant to background shifts.
 
 Semantic Blindness: To MOG2, a falling box and a walking human are both just "white blobs." It lacks the semantic understanding to classify what the object is.
 
-  Our Mitigation Strategy
+    Our Mitigation Strategy
 Since we cannot rely on semantic understanding, we implemented a robust Geometric Filtering Pipeline to distinguish humans from noise:
 
 Solidity Filter: Calculates Area / (Width * Height). Humans are "solid" shapes; noise/reflections are often hollow or scattered.
@@ -22,7 +22,7 @@ Aspect Ratio Constraint: Rejects horizontal objects (like pallets). Valid detect
 
 Dynamic ROI: Automatically ignores motion in the upper half of the frame (e.g., high shelves), focusing on the floor level.
 
-  Processing Pipeline
+    Processing Pipeline
 The code follows a strict 5-step pipeline:
 
 Pre-processing: Gaussian Blur to reduce sensor noise.
@@ -35,10 +35,10 @@ Segmentation: Connected Components Analysis to extract metrics.
 
 Logic Filtering: Applying the geometric rules described above.
 
-  Installation & Usage
+    Installation & Usage
 Prerequisites
 * Python 3.x
-* A webcam or a test video file
+* A webcam or a test video file (already installed)
 
 Quick Start
 1.  **Clone the repository:**
