@@ -40,24 +40,34 @@ Prerequisites
 * Python 3.x
 * A webcam or a test video file
 
-### Quick Start
+Quick Start
 1.  **Clone the repository:**
+    ```bash
     git clone [https://github.com/yourusername/Forklift-Safety-Vision.git](https://github.com/yourusername/Forklift-Safety-Vision.git)
     cd Forklift-Safety-Vision
+    ```
 
 2.  **Create and activate a virtual environment (Recommended):**
     * *Windows:*
+        ```bash
         python -m venv venv
         venv\Scripts\activate
+        ```
     * *Mac/Linux:*
+        ```bash
         python3 -m venv venv
         source venv/bin/activate
+        ```
 
 3.  **Install dependencies:**
+    ```bash
     pip install -r requirements.txt
+    ```
 
 4.  **Run the system:**
+    ```bash
     python main.py
+    ```
     *Note: If no video file is found in `data/`, the application will automatically open your webcam.*
   Academic Context
 This project was developed for the Computer Vision course, demonstrating mastery of fundamental algorithms independently of "Black Box" AI libraries.
